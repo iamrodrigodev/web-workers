@@ -1,0 +1,41 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#7060df">
+  <title>CSV Studio · Dale forma a tus datos</title>
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='16' fill='%237060df'/%3E%3Ctext x='12' y='46' font-size='46' fill='white'%3E▦%3C/text%3E%3C/svg%3E">
+  <link rel="stylesheet" href="styles.css">
+  <script type="module" src="app.js"></script>
+</head>
+<body>
+  <a class="skip-link" href="#contenido">Saltar al contenido</a>
+  <aside class="sidebar" aria-label="Acerca de CSV Studio">
+    <a class="brand" href="./"><span class="logo" aria-hidden="true">▦</span> csv<span class="brand-light">studio</span><span class="brand-dot">.</span></a>
+    <div class="sidebar-section">TU ESPACIO DE DATOS</div>
+    <div class="nav-active"><span aria-hidden="true">▤</span> Visor de archivos <span class="nav-dot"></span></div>
+    <div class="sidebar-note"><div class="note-icon" aria-hidden="true">✧</div><h2>Pequeño archivo.<br>Grandes posibilidades.</h2><p>De filas y columnas a una vista clara de tus datos.</p><div class="mini-grid" aria-hidden="true"><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i></div></div>
+    <div class="sidebar-footer"><span class="privacy-dot"></span> Privado por naturaleza<p>Tus datos se quedan contigo.</p></div>
+  </aside>
+  <div class="workspace">
+    <header><div class="breadcrumb">Espacio de trabajo <span>/</span> <strong>Visor CSV</strong></div><span class="local"><span></span> Solo en tu navegador</span></header>
+    <main id="contenido">
+      <div class="hero"><div><div class="eyebrow"><span></span> HAZ ESPACIO A LA CLARIDAD</div><h1>Dale forma a tus <span>datos.</span></h1><p class="intro">Un archivo CSV. Una tabla clara. Sin instalaciones ni pasos de más.</p></div><span class="hero-stamp" aria-hidden="true">{ , }</span></div>
+      <div class="section-label"><span>01</span> IMPORTA TU ARCHIVO <span class="section-line"></span><small>Fácil, rápido y privado</small></div>
+      <section class="upload" id="dropzone" aria-label="Cargar archivo CSV" aria-describedby="ayuda-archivo">
+        <div class="upload-decoration" aria-hidden="true"><span class="file-back"></span><span class="file-front"><span>CSV</span><b>↥</b></span></div>
+        <h2>Tu próxima tabla empieza aquí</h2>
+        <p id="ayuda-archivo">Arrastra un CSV o selecciónalo desde tu equipo.</p>
+        <label class="button" for="file"><span aria-hidden="true">＋</span> Seleccionar archivo</label><input id="file" type="file" accept=".csv,text/csv">
+        <div class="upload-meta"><span>.CSV</span> Hasta 20 MB <i>·</i> Codificación UTF-8</div>
+      </section>
+      <div class="below-upload"><span><span aria-hidden="true">✧</span> ¿Solo estás explorando?</span><button class="example" id="example">Prueba un archivo de ejemplo <span aria-hidden="true">↗</span></button></div>
+      <div class="status" role="status" aria-live="polite" aria-atomic="true" id="status">Listo para importar. Detectamos comas, punto y coma o tabulaciones automáticamente.</div>
+      <section id="empty-state" class="empty-state"><div aria-hidden="true">▤</div><h2>Todo listo para tus datos</h2><p>Cuando cargues un archivo, verás aquí sus filas y columnas.</p><div class="empty-lines" aria-hidden="true"><i></i><i></i><i></i></div></section>
+      <section id="results" hidden aria-labelledby="filename"><div class="section-label"><span>02</span> EXPLORA TUS DATOS <span class="section-line"></span><small>Importación completada</small></div><div class="result-head"><div class="file-heading"><span class="file-badge" aria-hidden="true">CSV</span><div><h2 id="filename"></h2><p>Vista del archivo · Primera fila como encabezado</p></div></div><button class="secondary" id="clear">Quitar archivo <span aria-hidden="true">×</span></button></div><div class="stats"><div><span>REGISTROS</span><strong id="rows">0</strong><small>Filas de datos</small></div><div><span>COLUMNAS</span><strong id="columns">0</strong><small>Campos detectados</small></div><div><span>ESTADO</span><strong class="ready"><i>✓</i> Listo para explorar</strong><small>Archivo procesado en tu equipo</small></div></div><div class="worker-proof" role="note"><strong>Web Worker verificado</strong><span id="worker-evidence"></span></div><div class="table-wrap" tabindex="0" role="region" aria-label="Datos del CSV, desplázate para ver todas las columnas"><table id="table"><caption class="sr-only">Contenido del archivo CSV importado</caption></table></div><div class="pagination"><span id="range"></span><div><button id="prev" class="secondary" aria-label="Página anterior">← Anterior</button><button id="next" class="secondary" aria-label="Página siguiente">Siguiente →</button></div></div></section>
+      <footer><span><span aria-hidden="true">◈</span> Tu archivo nunca sale de este navegador.</span><span>Hecho para ver las cosas claras <span aria-hidden="true">✦</span></span></footer>
+    </main>
+  </div>
+</body>
+</html>

@@ -1,0 +1,14 @@
+const {readFileSync}=require('node:fs');
+const {runInNewContext}=require('node:vm');
+const assert=require('node:assert/strict');
+const contexto={};
+runInNewContext(readFileSync(require('node:path').join(__dirname, 'analizador-csv.js'),'utf8'),contexto);
+const analizar=texto=>JSON.parse(JSON.stringify(contexto.analizarCsv(texto)));
+assert.deepEqual(analizar('\uFEFFNombre;Nota\r\nAna;"Hola; mundo"').registros,[['Ana','Hola; mundo']]);
+assert.deepEqual(analizar('A,B\n"Dijo ""hola""","dos\nlíneas"').registros,[['Dijo "hola"','dos\nlíneas']]);
+assert.deepEqual(analizar('A\tB\n1\t2\n\n').registros,[['1','2']]);
+assert.deepEqual(analizar('A,B').registros,[]);
+assert.throws(()=>analizar('A,B\n1'),/campos/);
+assert.throws(()=>analizar('A\n"incompleto'),/sin cerrar/);
+assert.throws(()=>analizar(' '),/vacío/);
+console.log('7 verificaciones de análisis CSV correctas.');
